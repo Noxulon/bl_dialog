@@ -38,19 +38,18 @@ html, body {
 .dialog-background {
     padding: 0.7vw;
     box-sizing: border-box;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0) 100%);
-    border: 1px solid rgba(117, 117, 117, 0.48);
+    background: #1f2937;
+    border: 1px solid rgba(216, 198, 160, 0.85);
     border-radius: 4px;
 }
 
 .dialog-button {
     padding: 0.6vw;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.28) 0%, rgba(153, 153, 153, 0) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.48);
+    background: #1f2937;
+    border: 1px solid rgba(216, 198, 160, 0.85);
     border-radius: 4px;
 }
 
 .dialog-button:hover {
-    border: 1px solid rgba(134, 133, 239, 0.4);
-    background: linear-gradient(90deg, rgba(134, 133, 239, 0.64) 0%, rgba(134, 133, 239, 0.2176) 100%);
+    border: 1px solid white;
 }

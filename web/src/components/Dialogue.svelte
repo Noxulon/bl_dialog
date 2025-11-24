@@ -48,8 +48,29 @@
     let displayedText = '';
     let index = 0;
     let finish = false;
+    let skipRequested = false;
+
+    function skipDialogue() {
+        skipRequested = true;
+        displayedText = currentDialogue.text;
+        index = currentDialogue.text.length;
+        finish = true;
+    }
+
+    onMount(() => {
+        const handler = (e: KeyboardEvent) => {
+            if (!finish && e.key === " ") {
+                skipDialogue();
+            }
+        };
+
+        window.addEventListener("keydown", handler);
+        return () => window.removeEventListener("keydown", handler);
+    });
 
     function typeWriterEffect() {
+        if (skipRequested) return;
+
         if (index < currentDialogue.text.length) {
             displayedText += currentDialogue.text.charAt(index);
             index++;
@@ -58,10 +79,13 @@
     }
 
     function refreshText() {
-        index = 0
-        displayedText = ''
-        typeWriterEffect()
+        index = 0;
+        displayedText = '';
+        finish = false;
+        skipRequested = false;
+        typeWriterEffect();
     }
+
 
     function selectButton(index: number, id?: string | number) {
         finish = false;
